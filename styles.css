@@ -1,0 +1,152 @@
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+@media (hover: hover) {
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a; 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #333; 
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37; 
+}
+
+/* Base utilities */
+body {
+    overflow-x: hidden;
+}
+
+.glass-panel {
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-2px);
+}
+
+.text-gold-gradient {
+    background: linear-gradient(135deg, #fce38a 0%, #d4af37 50%, #c5a028 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hide scrollbar for category list but allow scroll */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.category-nav {
+  background: linear-gradient(135deg, rgba(212,175,55,0.15), rgba(197,160,40,0.1));
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212,175,55,0.3);
+  box-shadow: 0 8px 32px rgba(212,175,55,0.1);
+}
+
+.category-nav button {
+  position: relative;
+  overflow: hidden;
+}
+
+.category-nav button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.category-nav button:hover::before {
+  left: 100%;
+}
+
+.category-nav button.active {
+  box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.loader {
+    border: 3px solid rgba(212, 175, 55, 0.1);
+    border-left-color: #d4af37;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Page Backgrounds - Lite subtle images */
+.menu-container, .reservation-container {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+}
+
+.menu-container {
+    background-image: linear-gradient(rgba(5, 5, 5, 0.85), rgba(10, 10, 10, 0.92)), 
+                      url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=60');
+}
+
+.reservation-container {
+    background-image: linear-gradient(rgba(5, 5, 5, 0.82), rgba(10, 10, 10, 0.90)), 
+                      url('https://media.istockphoto.com/id/1845430946/photo/abstract-blur-defocus-coffee-shop-cafe-or-restaurant-interior-background-blurred-cafe.jpg?s=612x612&w=0&k=20&c=4k0rkjZ6XzM6vQpprou-_tlylPUwSm_P9-Yh_vGg724=');
+}
+
+.menu-container > *, .reservation-container > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Responsive: Reduce attachment on mobile */
+@media (max-width: 768px) {
+    .menu-container, .reservation-container {
+        background-attachment: scroll;
+    }
+}
