@@ -560,7 +560,7 @@ const Login = () => {
                             value={formData.email}
                             onChange={e => setFormData({...formData, email: e.target.value})}
                             className="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-white focus:border-gold-500 focus:outline-none"
-                            placeholder="you@example.com"
+                            placeholder="Enter Email Address"
                         />
                     </div>
                     {isRegister && (
@@ -572,7 +572,7 @@ const Login = () => {
                                 value={formData.phone}
                                 onChange={e => setFormData({...formData, phone: e.target.value})}
                                 className="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-white focus:border-gold-500 focus:outline-none"
-                                placeholder="+91 98765 43210"
+                                placeholder=""
                             />
                         </div>
                     )}
@@ -852,7 +852,7 @@ const Reservation = () => {
                         </div>
                         <div>
                             <label className="block text-sm text-gray-400 mb-2">Email</label>
-                            <input type="email" required onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-white focus:border-gold-500 outline-none" placeholder="parveshshanmugam@gmail.com" />
+                            <input type="email" required onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-dark-800 border border-white/10 rounded-lg p-3 text-white focus:border-gold-500 outline-none" placeholder="" />
                         </div>
                         <div>
                             <label className="block text-sm text-gray-400 mb-2">Date</label>
